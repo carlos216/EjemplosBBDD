@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EjemplosBBDD</string>
+    <string name="action_settings">Settings</string>
+    <string name="no_data">sin datos</string>
+    <string name="planeta_nombre">nombre</string>
+    <string name="planeta_name">english</string>
+    <string name="planeta_radio">radio (km)</string>
+    <string name="planeta_distancia">al sol (km)</string>
+    <string name="planeta_dia">día (h)</string>
+    <string name="planeta_anno">año (días)</string>
+    <string name="planeta_temperatura">T (grados)</string>
+    <string name="planeta_gravedad">g (m/s2)</string>
+    <string name="menu_1">llenar</string>
+    <string name="menu_2">A-Z</string>
+    <string name="menu_3">M...</string>
+    <string name="menu_4">-Tierra</string>
+    <string name="menu_5">borrar</string>
+    <string name="menu_6">row 1</string>
+    <string name="menu_7">row 2</string>
+    <string name="menu_8">row 3</string>
+
+</resources>
