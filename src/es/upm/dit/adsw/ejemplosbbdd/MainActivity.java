@@ -1,11 +1,17 @@
 package es.upm.dit.adsw.ejemplosbbdd;
 
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Note;
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CursorAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
 	private PlanetasDbAdapter dbAdapter;
@@ -51,6 +57,7 @@ public class MainActivity extends ListActivity {
 				fillView3(dbAdapter.selectPattern("M"));
 				return true;
 			}
+			
 			case R.id.item4: {
 				Planeta planeta = dbAdapter.selectNombre("Tierra");
 				if (planeta == null)
@@ -59,19 +66,23 @@ public class MainActivity extends ListActivity {
 				fillView0(dbAdapter.selectAll());				
 				return true;
 			}
+			
 			case R.id.item5: {
 				dbAdapter.deleteAll();
 				fillView3(dbAdapter.selectAll());
 				return true;
 			}
+			
 			case R.id.item6: {
 				fillView1(dbAdapter.selectAll());
 				return true;
 			}
+			
 			case R.id.item7: {
 				fillView2(dbAdapter.selectAll());
 				return true;
 			}
+			
 			case R.id.item8: {
 				fillView3(dbAdapter.selectAll());
 				return true;
@@ -82,6 +93,24 @@ public class MainActivity extends ListActivity {
 			e.printStackTrace();
 		}
 		return true;
+	}
+
+	@Override
+	protected void onListItemClick(ListView listView, View view, int position,
+			long id) {
+		super.onListItemClick(listView, view, position, id);
+		ListAdapter listAdapter = listView.getAdapter();
+		CursorAdapter cursorAdapter = (CursorAdapter) listAdapter;
+		Cursor cursor = cursorAdapter.getCursor();
+		cursor.moveToPosition(position);
+		String nombre = cursor.getString(cursor
+				.getColumnIndex(PlanetasDbAdapter.COL_NOMBRE));
+		String name = cursor.getString(cursor
+				.getColumnIndex(PlanetasDbAdapter.COL_NAME));
+
+		String msg = String.format("nombre: %s%nname: %s", nombre, name);
+		Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+		toast.show();
 	}
 
 	private void cargaInicial() {

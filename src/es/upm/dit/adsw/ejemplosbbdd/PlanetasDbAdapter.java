@@ -32,11 +32,27 @@ public class PlanetasDbAdapter {
 	private SQLiteDatabase db;
 
 	private static final String DATABASE_CREATE = String.format(
-			"CREATE TABLE %s (" + "%s INTEGER PRIMARY KEY AUTOINCREMENT,"
-					+ "%s TEXT," + "%s TEXT," + "%s REAL," + "%s REAL,"
-					+ "%s REAL," + "%s REAL," + "%s REAL," + "%s REAL" + ");",
-			DATABASE_TABLE, COL_ID, COL_NOMBRE, COL_NAME, COL_RADIO,
-			COL_DISTANCIA, COL_DIA, COL_ANNO, COL_T, COL_G);
+			"CREATE TABLE %s (" 
+	        + "%s INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "%s TEXT," 
+	        + "%s TEXT," 
+			+ "%s REAL," 
+	        + "%s REAL,"
+			+ "%s REAL," 
+	        + "%s REAL," 
+			+ "%s REAL," 
+	        + "%s REAL" 
+			+ ");",
+			DATABASE_TABLE, 
+			COL_ID, 
+			COL_NOMBRE, 
+			COL_NAME, 
+			COL_RADIO,
+			COL_DISTANCIA, 
+			COL_DIA, 
+			COL_ANNO, 
+			COL_T, 
+			COL_G);
 
 	private final Context context;
 
